@@ -3,15 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boost : MonoBehaviour
+public class SpeedBoost : MonoBehaviour
 {
-    public string bonusName;
-    public int bonusValue;
+    public int boostValue;
     public float boostTime = 10f;
     private bool isBonus = false;
 
     private float timer = 0f;
-    private float originalValue = -1f;
     private MovementScript boost;
 
     public GameObject marker;
@@ -42,7 +40,7 @@ public class Boost : MonoBehaviour
             {
                 timer = 0f;
                 isBonus = false;
-                boost.speed = originalValue;
+                boost.speed -= boostValue;
                 SetDisabled(false);
             }
         }
@@ -56,8 +54,7 @@ public class Boost : MonoBehaviour
             boost = other.gameObject.GetComponent<MovementScript>();
             if(boost)
             {
-                originalValue = boost.speed;
-                boost.speed = originalValue + bonusValue;
+                boost.speed += boostValue;
                 isBonus = true;
                 SetDisabled(true);
             }
