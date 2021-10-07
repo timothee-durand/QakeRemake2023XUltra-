@@ -20,14 +20,12 @@ public class CharMovement : MonoBehaviour
     void Update()
     {
 
-        GetComponent<Transform>().Rotate(new Vector3(0, Input.GetAxis("Mouse X"), 0));
+        GetComponent<Transform>().Rotate(new Vector3(-Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0));
 
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-               //GetComponent<Transform>().Rotate(new Vector3(0, 1, 0));
                rb.AddForce(new Vector3(1f, 0, 0));
 
         if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.LeftArrow))
-               //GetComponent<Transform>().Rotate(new Vector3(0, -1, 0));
                rb.AddForce(new Vector3(-1f, 0, 0));
 
         if (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.UpArrow))
@@ -36,16 +34,6 @@ public class CharMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
                rb.AddForce(-GetComponent<Transform>().forward * Speed);
 
-        //else if (
-        //         Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow) ||
-        //         Input.GetKeyUp(KeyCode.Q) || Input.GetKeyUp(KeyCode.LeftArrow) ||
-        //         Input.GetKeyUp(KeyCode.Z) || Input.GetKeyUp(KeyCode.UpArrow) ||
-        //         Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow)
-        //     )
-        //{
-        //    rb.velocity = Vector3.zero;
-        //    rb.angularVelocity = Vector3.zero;
-        //}
 
 
 
