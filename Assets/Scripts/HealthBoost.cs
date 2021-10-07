@@ -14,7 +14,7 @@ public class HealthBoost : MonoBehaviour
 
     private bool isBonus = false;
     private float timer = 0f;
-    private MovementScript boost;
+    private TestMovementScript boost;
     private Material materialNormal;
     private Color colorNormal;
     private MeshRenderer markerRenderer;
@@ -49,7 +49,7 @@ public class HealthBoost : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" && !isBonus)
         {
-            boost = other.gameObject.GetComponent<MovementScript>();
+            boost = other.gameObject.GetComponent<TestMovementScript>();
             if (boost)
             {
                 boost.Health += boostValue;
