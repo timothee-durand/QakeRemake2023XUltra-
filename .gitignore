@@ -70,3 +70,10 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 Assets/Scenes/testscene.unity
+
+/Assets/MovementScript.cs.meta
+/Assets/MovementScript.cs
+/Packages/
+/Assets/AurynSky/
+/Assets/ExampleAssets/
+/Assets/Materials/
