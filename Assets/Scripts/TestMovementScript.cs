@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementScript : MonoBehaviour
+public class TestMovementScript : MonoBehaviour
 {
     public float speed = 0.5f;
     public float jumpForce = 1f;
@@ -27,5 +27,5 @@ public class MovementScript : MonoBehaviour
             rBody.AddForce(tr.forward * -speed);
         if (Input.GetKey(KeyCode.Space))
             rBody.AddForce(new Vector3(0, this.jumpForce, 0));
-    }
+    } 
 }
