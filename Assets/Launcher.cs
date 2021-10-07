@@ -28,6 +28,7 @@ namespace Com.Unity.QuakeGame
         /// This client's version number. Users are separated from each other by gameVersion (which allows you to make breaking changes).
         /// </summary>
         string gameVersion = "1";
+        bool isConnecting;
 
         #endregion
 
@@ -69,9 +70,11 @@ namespace Com.Unity.QuakeGame
             }
             else
             {
-                PhotonNetwork.ConnectUsingSettings();
+                isConnecting = PhotonNetwork.ConnectUsingSettings();
                 PhotonNetwork.GameVersion = gameVersion;
             }
+
+            
         }
 
 
@@ -83,13 +86,19 @@ namespace Com.Unity.QuakeGame
         public override void OnConnectedToMaster()
         {
             Debug.Log("PUN Basics Tutorial/Launcher: OnConnectedToMaster() was called by PUN");
-            PhotonNetwork.JoinRandomRoom();
+            if (isConnecting)
+            {
+                PhotonNetwork.JoinRandomRoom();
+                isConnecting = false;
+            }
+            
         }
 
         public override void OnDisconnected(DisconnectCause cause)
         {
             progressLabel.SetActive(false);
             controlPanel.SetActive(true);
+            isConnecting = false;
             Debug.LogWarningFormat("PUN Basics Tutorial/Launcher: OnDisconnected() was called by PUN with reason {0}", cause);
         }
 
@@ -102,6 +111,13 @@ namespace Com.Unity.QuakeGame
         public override void OnJoinedRoom()
         {
             Debug.Log("PUN Basics Tutorial / Launcher: OnJoinedRoom() called by PUN.Now this client is in a room.");
+
+            if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
+            {
+                Debug.Log("We load the 'Room for 1' ");
+
+                PhotonNetwork.LoadLevel("Room for 1");
+            }
         }
 
         #endregion

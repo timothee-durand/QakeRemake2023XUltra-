@@ -418,6 +418,15 @@ namespace Photon.Pun
         public virtual void OnErrorInfo(ErrorInfo errorInfo)
         {
         }
+
+
+        void CalledOnLevelWasLoaded(int level)
+        {
+            if (!Physics.Raycast(transform.position, -Vector3.up, 5f))
+            {
+                transform.position = new Vector3(0f, 5f, 0f);
+            }
+        }
     }
 
 
