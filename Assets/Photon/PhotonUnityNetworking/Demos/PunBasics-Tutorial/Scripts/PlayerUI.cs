@@ -35,7 +35,7 @@ namespace Photon.Pun.Demo.PunBasics
 	    [SerializeField]
 	    private Slider playerHealthSlider;
 
-        PlayerManager target;
+        public GameObject target;
 
 		float characterControllerHeight;
 
@@ -60,6 +60,8 @@ namespace Photon.Pun.Demo.PunBasics
 			_canvasGroup = this.GetComponent<CanvasGroup>();
 			
 			this.transform.SetParent(GameObject.Find("Canvas").GetComponent<Transform>(), false);
+
+
 		}
 
 		/// <summary>
@@ -70,14 +72,20 @@ namespace Photon.Pun.Demo.PunBasics
 		{
 			// Destroy itself if the target is null, It's a fail safe when Photon is destroying Instances of a Player over the network
 			if (target == null) {
-				Destroy(this.gameObject);
+				foreach (GameObject p in GameObject.FindGameObjectsWithTag("Player"))
+					if (p.GetComponent<PhotonView>().IsMine)
+					{
+						target = p;
+						Debug.Log(p.name + " --- " + target);
+						playerNameText.text = target.GetComponent<PhotonView>().Owner.NickName;
+					}
 				return;
 			}
 
 
 			// Reflect the Player Health
 			if (playerHealthSlider != null) {
-				playerHealthSlider.value = target.Health;
+				playerHealthSlider.value = target.GetComponent<PlayerManager>().Health;
 			}
 		}
 
@@ -124,7 +132,7 @@ namespace Photon.Pun.Demo.PunBasics
 			}
 
 			// Cache references for efficiency because we are going to reuse them.
-			this.target = _target;
+			//this.target = _target;
             targetTransform = this.target.GetComponent<Transform>();
             targetRenderer = this.target.GetComponentInChildren<Renderer>();
 
@@ -134,10 +142,6 @@ namespace Photon.Pun.Demo.PunBasics
 			// Get data from the Player that won't change during the lifetime of this Component
 			if (_characterController != null){
 				characterControllerHeight = _characterController.height;
-			}
-
-			if (playerNameText != null) {
-                playerNameText.text = this.target.photonView.Owner.NickName;
 			}
 		}
 

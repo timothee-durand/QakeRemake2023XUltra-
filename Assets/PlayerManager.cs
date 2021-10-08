@@ -98,8 +98,8 @@ namespace Com.Unity.QuakeGame
 
             if (PlayerUiPrefab != null)
             {
-                GameObject _uiGo = Instantiate(PlayerUiPrefab);
-                _uiGo.SendMessage("SetTarget", this, SendMessageOptions.RequireReceiver);
+                //GameObject _uiGo = Instantiate(PlayerUiPrefab);
+                //_uiGo.SendMessage("SetTarget", this, SendMessageOptions.RequireReceiver);
             }
             else
             {
@@ -172,8 +172,8 @@ namespace Com.Unity.QuakeGame
                 transform.position = new Vector3(0f, 5f, 0f);
             }
 
-            GameObject _uiGo = Instantiate(this.PlayerUiPrefab);
-            _uiGo.SendMessage("SetTarget", this, SendMessageOptions.RequireReceiver);
+            //GameObject _uiGo = Instantiate(this.PlayerUiPrefab);
+            //_uiGo.SendMessage("SetTarget", this, SendMessageOptions.RequireReceiver);
         }
 
         #if UNITY_5_4_OR_NEWER
