@@ -9,7 +9,7 @@ public class JumpBoost : MonoBehaviour
     private bool isBonus = false;
 
     private float timer = 0f;
-    private TestMovementScript boost;
+    private DisplacementMovement boost;
 
     public GameObject marker;
     public Light halo;
@@ -39,7 +39,7 @@ public class JumpBoost : MonoBehaviour
             {
                 timer = 0f;
                 isBonus = false;
-                boost.jumpForce -= boostValue;
+                boost.jumpHeight -= boostValue;
                 SetDisabled(false);
             }
         }
@@ -50,11 +50,11 @@ public class JumpBoost : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" && !isBonus)
         {
-            boost = other.gameObject.GetComponent<TestMovementScript>();
+            boost = other.gameObject.GetComponent<DisplacementMovement>();
             if (boost)
             {
      
-                boost.jumpForce += boostValue;
+                boost.jumpHeight += boostValue;
                 isBonus = true;
                 SetDisabled(true);
             }

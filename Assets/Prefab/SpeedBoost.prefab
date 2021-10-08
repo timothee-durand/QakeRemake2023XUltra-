@@ -45,8 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 305a5c8fc5d3b0648b2f5a1e8f477303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bonusName: speed
-  bonusValue: 20
+  boostValue: 10
   boostTime: 2
   marker: {fileID: 718180358058639837}
   halo: {fileID: 717462926367688399}
@@ -78,6 +77,10 @@ PrefabInstance:
       value: SpeedIcon
       objectReference: {fileID: 0}
     - target: {fileID: 5537514631294079122, guid: bc7c209dffa5be840a6f04ea6ef6a39a, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5537514631294079122, guid: bc7c209dffa5be840a6f04ea6ef6a39a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -90,6 +93,10 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5537514631294079122, guid: bc7c209dffa5be840a6f04ea6ef6a39a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5537514631294079122, guid: bc7c209dffa5be840a6f04ea6ef6a39a, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0.7071068
       objectReference: {fileID: 0}
@@ -99,14 +106,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5537514631294079122, guid: bc7c209dffa5be840a6f04ea6ef6a39a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5537514631294079122, guid: bc7c209dffa5be840a6f04ea6ef6a39a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 5537514631294079122, guid: bc7c209dffa5be840a6f04ea6ef6a39a, type: 3}
-      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5537514631294079122, guid: bc7c209dffa5be840a6f04ea6ef6a39a, type: 3}

@@ -10,7 +10,7 @@ public class SpeedBoost : MonoBehaviour
     private bool isBonus = false;
 
     private float timer = 0f;
-    private TestMovementScript boost;
+    private DisplacementMovement boost;
 
     public GameObject marker;
     public Light halo;
@@ -49,9 +49,11 @@ public class SpeedBoost : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+  
         if (other.gameObject.tag == "Player" && !isBonus)
         {
-            boost = other.gameObject.GetComponent<TestMovementScript>();
+            Debug.Log("coucou");
+            boost = other.gameObject.GetComponent<DisplacementMovement>();
             if(boost)
             {
                 boost.speed += boostValue;
